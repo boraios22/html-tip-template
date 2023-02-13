@@ -5,7 +5,10 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Login</title>
+<title>HTML Tips</title>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -23,11 +26,14 @@
 
 		<div class="col-md-6 col-md-offset-3">
 
-			<%-- <div class="alert alert-success center" role="alert">
-				<p>${NOTIFICATION}</p>
-			</div> --%>
+			<%if (request.getAttribute("NOTIFICATION") != null){%>
 
-			<form action="#" method="post">
+			<div class="alert alert-success center" role="alert">
+				<p>${NOTIFICATION}</p>
+			</div>
+			<%} %>
+
+			<form action="<%=request.getContextPath()%>/login" method="post">
 
 				<div class="form-group">
 					<label for="uname">User Name:</label> <input type="text"

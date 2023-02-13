@@ -1,6 +1,9 @@
+<%@page import="com.itstep.htmltip.entity.Tip"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,16 +23,19 @@
 
 	<div class="container">
 
+		<%
+		Tip tip = (Tip) request.getAttribute("tip");
+		String[] htmlList = tip.getExampleHtmlEscape().split("[\\r\\n]+");
+		%>
 		<div class="overflow-auto">
 			<div class="card w-85 mt-3">
 				<div class="card">
 					<div class="card-body">
-						<h5 class="card-title">Tip title</h5>
-						<p class="card-text">Tip description</p>
+						<h5 class="card-title"><%=tip.getTitle()%></h5>
+						<p class="card-text"><%=tip.getDescription()%></p>
 						<h5 class="card-title">Example</h5>
-						<p class="card-text">Tip example in HTML</p>
-
-						<%-- <p class="card-text">
+						<p class="card-text"><%=tip.getExampleHtmlEscape()%></p>
+						<p class="card-text">
 							<c:forEach var="item" items="<%=htmlList%>">
 								<br>
 								<code>
@@ -37,12 +43,13 @@
 								</code>
 							</c:forEach>
 
-						</p> --%>
+						</p>
 					</div>
 				</div>
 
 			</div>
 		</div>
+
 
 
 	</div>

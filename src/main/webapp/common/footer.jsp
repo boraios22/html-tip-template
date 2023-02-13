@@ -10,7 +10,9 @@
 </style>
 
 <footer class="footer font-small black">
+    <!-- Copyright -->
   <div class="footer-copyright text-center py-3" style="color: white">© 2023 Copyright:
         <strong> ITStep students </strong>
       </div>
 </footer>
+<!-- Footer -->

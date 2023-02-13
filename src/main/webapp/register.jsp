@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+
 <meta charset="ISO-8859-1">
 <title>Register</title>
 
@@ -22,11 +24,14 @@
 
 		<div class="col-md-6 col-md-offset-3">
 
-			<%-- <div class="alert alert-success center" role="alert">
-				<p>${NOTIFICATION}</p>
-			</div> --%>
+			<%if (request.getAttribute("NOTIFICATION") != null){%>
 
-			<form action="#" method="post">
+			<div class="alert alert-success center" role="alert">
+				<p>${NOTIFICATION}</p>
+			</div>
+			<%} %>
+
+			<form action="<%=request.getContextPath()%>/register" method="post">
 
 				<div class="form-group">
 					<label for="uname">User Name:</label> <input type="text"

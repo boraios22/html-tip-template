@@ -19,15 +19,26 @@
 
 	<div class="container">
 
+		<%
+		if (session.getAttribute("username") != null) {
+		%>
+
 		<h2>Tip creation</h2>
 
 		<div class="col-md-6 col-md-offset-3">
 
-			<%-- <div class="alert alert-success center" role="alert">
-				<p>${NOTIFICATION}</p>
-			</div> --%>
+			<%
+			if (request.getAttribute("NOTIFICATION") != null) {
+			%>
 
-			<form action="#" method="post">
+			<div class="alert alert-success center" role="alert">
+				<p>${NOTIFICATION}</p>
+			</div>
+			<%
+			}
+			%>
+
+			<form action="<%=request.getContextPath()%>/tip" method="post">
 
 				<div class="form-group">
 					<label for="title">Title:</label> <input type="text"
@@ -43,6 +54,10 @@
 
 				<div class="form-group">
 					<label for="exampleHtmlEscape">Example:</label>
+					<!-- <input type="text"
+						class="form-control" id="exampleHtmlEscape" placeholder="Example HTML"
+						name="exampleHtmlEscape" required> -->
+
 					<textarea class="form-control" id="exampleHtmlEscape" rows="3"
 						placeholder="Example HTML" name="exampleHtmlEscape" required></textarea>
 				</div>
@@ -52,7 +67,9 @@
 
 			</form>
 		</div>
-		
+		<%
+		}
+		%>
 	</div>
 
 
